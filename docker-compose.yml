@@ -14,8 +14,6 @@ services:
     build: .
     ports:
       - "80:5000"
-    volumes:
-      - .:/app
     depends_on:
       - mongodb
 
