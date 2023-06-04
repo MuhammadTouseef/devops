@@ -5,11 +5,15 @@ const db = config.get('mongoURI');
 const connectDB = async () => {
   try {
     await mongoose.connect(db, {
+      "auth": { "authSource": "admin" },
+      "user": "admin",
+      "pass": "password",
+      "useMongoClient": true,
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,
       useUnifiedTopology: true
-    });
+  });
 
     console.log('MongoDB Connected...');
   } catch (err) {
